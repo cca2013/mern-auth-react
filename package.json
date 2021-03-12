@@ -1,11 +1,12 @@
-{
+{{
    "name":"mern-auth",
    "version":"1.0.0",
    "description":"Mern Auth Example",
    "main":"server.js",
    "scripts":{
       "start":"node server.js",
-	  "heroku-postbuild": "npm install && npm run build"     
+	    "heroku-postbuild": "cd mernauth && npm install && npm run build",
+      "dev":"concurrently \"npm run server\" \"npm run client\""
    },
    "author":"'Your <'skafosbiz@gmail.com'>",
    "license":"MIT",
@@ -33,4 +34,4 @@
       "url":"https://github.com/cca2013"
    }
 }
-
+}
