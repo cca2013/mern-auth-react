@@ -5,7 +5,7 @@
    "main":"server.js",
    "scripts":{
       "start":"node server.js",
-	  "heroku-postbuild": "cd mernauth && npm install && npm run build"     
+	  "heroku-postbuild": "npm install && npm run build"     
    },
    "author":"'Your <'skafosbiz@gmail.com'>",
    "license":"MIT",
