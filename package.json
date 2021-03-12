@@ -1,39 +1,36 @@
-{
-  "name": "mern-auth",
-  "version": "1.0.0",
-  "description": "Mern Auth Example",
-  "main": "server.js",
-  "start": "npm run dev",
-"heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
-  "scripts": {
-    "client-install": "npm install --prefix client",
-    "start": "node server.js",
-    "server": "nodemon server.js",
-    "client": "npm start --prefix client",
-	"build": "npm run build ",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
-  },
-  "author": "'Your <'skafosbiz@gmail.com'>",
-  "license": "MIT",
-  "dependencies": {
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.18.3",
-    "bootstrap": "4.6.0",
-    "build": "0.1.4",
-    "client": "file:client",
-    "concurrently": "^4.0.1",
-    "express": "^4.16.4",
-    "is-empty": "^1.2.0",
-    "jsonwebtoken": "^8.3.0",
-    "mongoose": "^5.3.11",
-    "passport": "^0.4.0",
-    "passport-jwt": "^4.0.0",
-    "react-router-dom": "5.2.0",
-    "validator": "^10.9.0"
-  },
-  "devDependencies": {},
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/cca2013"
-  }
+{{
+   "name":"mern-auth",
+   "version":"1.0.0",
+   "description":"Mern Auth Example",
+   "main":"server.js",
+   "scripts":{
+      "start":"node server.js",
+	  "heroku-postbuild": "cd mernauth && npm install && npm run build"     
+   },
+   "author":"'Your <'skafosbiz@gmail.com'>",
+   "license":"MIT",
+   "dependencies":{
+      "bcryptjs":"^2.4.3",
+      "body-parser":"^1.18.3",
+      "bootstrap":"4.6.0",
+      "build":"0.1.4",
+      "client":"file:client",
+      "concurrently":"^4.0.1",
+      "express":"^4.16.4",
+      "is-empty":"^1.2.0",
+      "jsonwebtoken":"^8.3.0",
+      "mongoose":"^5.3.11",
+      "passport":"^0.4.0",
+      "passport-jwt":"^4.0.0",
+      "react-router-dom":"5.2.0",
+      "validator":"^10.9.0"
+   },
+   "devDependencies":{
+      
+   },
+   "repository":{
+      "type":"git",
+      "url":"https://github.com/cca2013"
+   }
+}
 }
