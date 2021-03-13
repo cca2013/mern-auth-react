@@ -37,6 +37,7 @@ require("./config/passport")(passport);
 
 // Routes
 app.use("/api/users", users);
+app.use("/client");
 //require('./routes/api/users')(app);
 app.use("/productRoutes", products);
 require('./routes/productRoutes')(app);
