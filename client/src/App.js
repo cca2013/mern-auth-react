@@ -14,6 +14,7 @@ import Dashboard from "./components/dashboard/Dashboard";
 import App1 from "./components/products/App1";
 import productAddForm from "./components/addproducts/productAddForm";
 import deleteProductForm from "./components/deleteproducts/deleteProductForm";
+import editProductForm from "./components/editproducts/editProductForm";
 import Routes from "./components/routes/router";
 import "./App.css";
 
