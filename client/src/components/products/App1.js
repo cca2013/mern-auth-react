@@ -167,7 +167,7 @@ const routeChange = (value) =>
      	
 	 <ul >
 	
-		<h3><p>  ΠΡΟΙΟΝΤΑ </p>  <p>ΧYΣΤΗ:  {title} </p></h3>
+		<h3><p>  ΠΡΟΙΟΝΤΑ </p>  <p>ΧΡΗΣΤΗ:  {title} </p></h3>
         {
 
 			(products && products.length > 0) ? 
