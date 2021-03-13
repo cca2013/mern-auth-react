@@ -2,7 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 const passport = require("passport");
-
+const path = require('path'); 
 const users = require("./routes/api/users");
 const products = require("./routes/productRoutes");
 require('./models/Product');
@@ -37,7 +37,7 @@ require("./config/passport")(passport);
 
 // Routes
 app.use("/api/users", users);
-app.use("/client");
+
 //require('./routes/api/users')(app);
 app.use("/productRoutes", products);
 require('./routes/productRoutes')(app);
