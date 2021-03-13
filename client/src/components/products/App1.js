@@ -180,7 +180,7 @@ const routeChange = (value) =>
 							<p>---------------------------------------------------------------</p>
 							<p>ΑΑ: {count=count+1}</p>
 							<p >ΕΙΔΟΣ:   			{product.name}</p><p></p>						
-							<p ><img src=			{product.image} width='300' height='300' /></p>
+							<p ><img src=			{product.image} width='500' height='300' /></p>
 							<p >ΠΕΡΙΓΡΑΦΗ:  		{product.description}</p>	
 							<p> </p>
 							<p >ΚΩΔΙΚΟΣ ΠΡΟΙΟΝΤΟΣ:</p><p> 	{product._id}	</p>	
