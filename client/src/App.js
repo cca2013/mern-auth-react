@@ -49,6 +49,7 @@ class App extends Component {
 			<Route exact path="/products" component={App1} />
 			<Route exact path="/addproducts" component={productAddForm} />
 			<Route exact path="/deleteproducts" component={deleteProductForm} />
+			<Route exact path="/editproducts" component={editProductForm} />
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>

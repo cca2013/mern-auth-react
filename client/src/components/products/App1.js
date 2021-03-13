@@ -15,8 +15,6 @@ const initialFormData = Object.freeze({
 var counter=0;
 var _id='60454cbcac6a6c1d449fd455';
 
-
-
 var arrayOfIds=[];
 //var test={_id:'', name:'', description:'', user:'', image:''};
 function App1(props) {
@@ -116,6 +114,21 @@ const routeChange = (value) =>
 				Delete
 				</button> 
 			</p>
+			<p>
+				<button
+					style=
+					{{
+						width: "150px",
+						borderRadius: "3px",
+						letterSpacing: "1.5px",
+						marginTop: "1rem"
+					}}    
+					onClick={goToDeleteDataForm}
+					className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+				>
+				
+				</button> 
+			</p>
 		<p> </p>
 			<li key={product.user} >
 				<p>---------------------------------------------------------------</p>
@@ -163,7 +176,19 @@ const routeChange = (value) =>
 			Delete by ID
 			</button> 
 					
-						
+				  <button
+				style={{
+					width: "200px",
+					borderRadius: "3px",
+					letterSpacing: "1.5px",
+					marginTop: "1rem"
+				}}     
+				onClick={goToDeleteDataForm}
+				className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+			>
+							
+			Edit by ID
+			</button> 		
      	
 	 <ul >
 	
