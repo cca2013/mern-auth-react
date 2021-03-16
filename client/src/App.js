@@ -15,6 +15,7 @@ import App1 from "./components/products/App1";
 import productAddForm from "./components/addproducts/productAddForm";
 import deleteProductForm from "./components/deleteproducts/deleteProductForm";
 import editProductForm from "./components/editproducts/editProductForm";
+import findProductForm from "./components/findproducts/findProductForm";
 import Routes from "./components/routes/router";
 import "./App.css";
 
@@ -51,6 +52,8 @@ class App extends Component {
 			<Route exact path="/addproducts" component={productAddForm} />
 			<Route exact path="/deleteproducts" component={deleteProductForm} />
 			<Route exact path="/editproducts" component={editProductForm} />
+			<Route exact path="/findproducts" component={findProductForm} />
+
             <Switch>
               <PrivateRoute exact path="/dashboard" component={Dashboard} />
             </Switch>

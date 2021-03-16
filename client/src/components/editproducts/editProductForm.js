@@ -9,57 +9,81 @@ import axios from 'axios';
 import { BrowserRouter as Router, Route, Link  } from 'react-router-dom';
 import "../../styles.css";
 
-function deleteProductForm(props) 
+var product1 ={}
+var array=[]
+
+
+function editProductForm(props) 
 { 
-var title =props.location.state.title;
+
+product1=props.location.state.title;
+//remove [] from the passed object
+
+const product1_Str=JSON.stringify(product1)
+
+const removed = product1.substring(1, product1.length-1);
+
+const passed_obj=JSON.parse(removed)
+
 
 const [values, setValues] = useState({id: ''});
+const [product, setProduct] = useState(passed_obj)
+
+
+
+
+
+
+const handleChange = (event) => {
+    const { name, value } = event.target;
+    setProduct({
+      ...product,
+      [name]: value,
+    });
+  };
 
   const set = id => {
     return ({ target: { value } }) => {
       setValues(oldValues => ({...oldValues, [id]: value }));
-    }
-  };
-
- 
-
-		
- const saveFormData = async (req,res) => {
-
-   const response = await fetch('/api/removeProduct', {
+    }	
+  }
+  
+  
+	const saveProductData = async (req,res) => {
+   //alert(JSON.stringify(product))
+   const response = await fetch('/api/saveProduct', {
       method: 'POST',
 	  headers:
 		{'Accept':'application/json',
 		'Content-Type':'application/json'},
-      body: JSON.stringify(values)
-    }).then(res => {
-		if (res.ok) return res.json()  
-		return alert("deletion not posted")
+      body: JSON.stringify(product)
+    }).
+		then(result => {
+		if (result) return result.json()  
+		return alert("Product saved succesfully.")
 			})
-		.then(response => {
-			alert(response)
+		.then(result => {
+			alert(result)
+		});
 		
-  });
-		
- 
+		goToProducts();
 		
   }
 
    const goToProducts =  async()  => {		
     props.history.push({
     pathname: `/products`,
-    state: {title:title}
+    state: {title:product.user}
 })
  }
 
-  const onSubmit = async (event) => {
-    event.preventDefault(); // Prevent default submission
-    
-      await saveFormData();
-     // alert('Your registration was successfully submitted!');
-      setValues({
-       id: '' 
-      });
+ 
+  
+    const onSubmit = async (event) => {
+     	event.preventDefault()	
+		//alert(product.name)
+		await saveProductData();     
+  
   
   }
   
@@ -68,29 +92,44 @@ const [values, setValues] = useState({id: ''});
   //then redirect:
   this.props.history.push({ //browserHistory.push should also work here
     pathname: '/products',
-    state: {title: title}
+    state: {title: product.user}
   }); 
-}
-
-
-    return ( 
-    <form onSubmit={onSubmit}>
-      <h2>Product id, paste here:</h2>
-
-      <label>ID:</label>
-      <input 
-        type="text" required
-        value={values.id} onChange={set('id')} 
-      />
-
-     
+};
+    
+	
+	
+	return ( 
+	
+	<div>
+	<form onSubmit={onSubmit}>
+       <h2>Edit product</h2>
+       <label>Name*:</label>	
+	   <input 
+        type="input"  name="name" id="name"
+		value={product.name}  onChange={(e) => handleChange(e)}
+		
+       />
+      <label>Description*:</label>
+	   <input 
+        type="input"  name="description" id="description"
+		value={product.description}
+		onChange={(e) => handleChange(e)}
+       />
+	   <input 
+        type="hidden"  name="user" id="user"
+        value={product.user} onChange={(e) => handleChange(e)} />        
+	   <label>Image*:</label>	   
+	   <input 
+        type="input"  name="image" id="image"
+		value= {product.image} onChange={(e) => handleChange(e)} />
       <button type="submit">Submit</button>
-	 <button onClick={goToProducts}>Go back</button>
-    </form>
-  );
- 
+    
+</form>	  
+</div>
+ );
+	
 }
 
 
 
-export default deleteProductForm;
+export default editProductForm;

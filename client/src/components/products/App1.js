@@ -37,21 +37,10 @@ var title =props.location.state.title;
   const getProducts = async(value) => {	
     let res = await productService.getAll({value:title});
     setproducts(res);
+	setProduct(res[0])
   }
   
- const deleteProductData =  async() => {	
-    const response =  await fetch('/api/removeProduct',{
-			method:'POST',
-		//headers:
-	//	{'Accept':'text',
-		//'Content-Type':'text'},
-		body: test
-	});
 
-    if (response.status == 200) {
-      alert(`Request succeded: ${response.status}`); 
-    }
-  }
  
  function increaseCount(id) {
 count=count+1
@@ -62,6 +51,15 @@ alert(id);
 
    props.history.push({
     pathname: `/deleteproducts`,
+    state: {title:title}
+})
+ 
+ }
+ 
+  const goToEditDataForm =  ()  => {		
+
+   props.history.push({
+    pathname: `/findproducts`,
     state: {title:title}
 })
  
@@ -114,21 +112,7 @@ const routeChange = (value) =>
 				Delete
 				</button> 
 			</p>
-			<p>
-				<button
-					style=
-					{{
-						width: "150px",
-						borderRadius: "3px",
-						letterSpacing: "1.5px",
-						marginTop: "1rem"
-					}}    
-					onClick={goToDeleteDataForm}
-					className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-				>
-				
-				</button> 
-			</p>
+			
 		<p> </p>
 			<li key={product.user} >
 				<p>---------------------------------------------------------------</p>
@@ -159,7 +143,7 @@ const routeChange = (value) =>
 
               className="btn btn-large waves-effect waves-light hoverable blue accent-3"
           >
-          Add New Product
+          Add New Product 
           </button>
 	
 		  <button
@@ -183,7 +167,7 @@ const routeChange = (value) =>
 					letterSpacing: "1.5px",
 					marginTop: "1rem"
 				}}     
-				onClick={goToDeleteDataForm}
+				onClick={goToEditDataForm}
 				className="btn btn-large waves-effect waves-light hoverable blue accent-3"
 			>
 							
@@ -192,7 +176,7 @@ const routeChange = (value) =>
      	
 	 <ul >
 	
-		<h3><p>  ΠΡΟΙΟΝΤΑ </p>  <p>ΧΡΗΣΤΗ:  {title} </p></h3>
+		<h3><p>  ΠΡΟΙΟΝΤΑ </p>  <p>ΧΡΗΣΤΗ:  {title}  </p></h3>
         {
 
 			(products && products.length > 0) ? 

@@ -60,5 +60,34 @@ module.exports = (app) => {
         
 	
   });
+  
+  
+    app.post("/api/getProduct", async (req, res) => {
+    const {id} = req.body;
+	
+    let product = await Product.find({_id:id}).then(product => {
+			res.json(JSON.stringify(product))
+			
+		//	console.log('This the found product after the call:'+product)
+			})
+			.catch(error => res.json('Wrong id. Product not found try again.  '));
+			
+		
+ //return res.status(200).send(JSON.stringify(product))
+    
+
+  });
+  
+    app.post("/api/saveProduct", async (req, res) => {
+    //let product = {'_id':'604e623971943a0015675e41','user':'604df9b41b38c127d8a2b960','name':'konstantinos','image':'https://img00.deviantart.net/cfa0/i/2015/310/d/b/tesla_coil_cambridge_teslathon_2015_by_teslaextreme-d9fr5dp.jpg'}
+	let product = req.body
+    const id=product._id
+    const result = await Product.findByIdAndUpdate(id,product).then(result => {
+			res.json('Success.Product saved.')
+			console.log("this product was saved:"+JSON.stringify(product))
+			})
+			.catch(error => res.json('Wrong id. Failure to update product.  '))
+
+  });
 }
 
